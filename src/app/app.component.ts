@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cryptobot';
+
+  onClick(event?: MouseEvent) {
+    alert('Click me.');
+  }
+
 }
