@@ -15,7 +15,6 @@ export class AppComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogCreateBotComponent, {
       width: '250px',
-      data: {},
     });
   }
 
