@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCreateBotComponent } from './dialog-create-bot/dialog-create-bot.component';
 
+interface Bot {
+  name: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +13,7 @@ import { DialogCreateBotComponent } from './dialog-create-bot/dialog-create-bot.
 })
 export class AppComponent {
   title = 'cryptobot';
+  bots: Bot[] = [{ name: 'myBot1' },  { name: 'myBot2' }];
 
   constructor(public dialog: MatDialog) {}
 

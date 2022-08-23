@@ -1,3 +1,11 @@
-<section>
+<section style="margin-bottom: 4px;">
   <button mat-raised-button color="primary" (click)="openDialog()">Create bot</button>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <mat-nav-list>
+    <mat-list-item *ngFor="let bot of bots">
+       {{ bot.name }}
+    </mat-list-item>
+  </mat-nav-list>
 </section>
