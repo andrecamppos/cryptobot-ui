@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+import { Bot } from './bot.model';
+import { BotService } from './bots/bot.service';
 import { DialogCreateBotComponent } from './dialog-create-bot/dialog-create-bot.component';
-
-interface Bot {
-  name: string;
-}
 
 @Component({
   selector: 'app-root',
@@ -13,9 +12,12 @@ interface Bot {
 })
 export class AppComponent {
   title = 'cryptobot';
-  bots: Bot[] = [{ name: 'myBot1' },  { name: 'myBot2' }];
 
-  constructor(public dialog: MatDialog) {}
+  bots$: Observable<Bot[]>;
+
+  constructor(public dialog: MatDialog, private botService: BotService) {
+    this.bots$ = this.botService.getAll();
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogCreateBotComponent, {
